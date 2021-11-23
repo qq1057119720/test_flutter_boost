@@ -77,8 +77,8 @@ class _MyAppState extends State<MyApp> {
   };
 
 
-  Route<dynamic> routeFactory(RouteSettings settings, String uniqueId) {
-    FlutterBoostRouteFactory func = routerMap[settings.name];
+  Route<dynamic>? routeFactory(RouteSettings settings, String? uniqueId) {
+    FlutterBoostRouteFactory? func = routerMap[settings.name];
     if (func == null) {
       return null;
     }
@@ -109,24 +109,3 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class BoostNavigatorObserver extends NavigatorObserver {
-  @override
-  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('boost-didPush' + route.settings.name);
-  }
-
-  @override
-  void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('boost-didPop' + route.settings.name);
-  }
-
-  @override
-  void didRemove(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('boost-didRemove' + route.settings.name);
-  }
-
-  @override
-  void didStartUserGesture(Route<dynamic> route, Route<dynamic> previousRoute) {
-    print('boost-didStartUserGesture' + route.settings.name);
-  }
-}
